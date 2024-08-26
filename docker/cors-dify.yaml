@@ -1,0 +1,53 @@
+http:
+  middlewares:
+    cors:
+      headers:
+        accessControlAllowOriginList:
+          - "https://dify.console.yourdomain.com"
+          - "https://dify.yourdomain.com"
+          - "https://dify.console.api.yourdomain.com"
+          - "https://dify.api.yourdomain.com"
+          - "https://dify.api.app.yourdomain.com"
+        accessControlAllowMethods:
+          - GET
+          - OPTIONS
+          - PUT
+          - POST
+          - DELETE
+        accessControlAllowHeaders:
+          - Content-Type
+          - Authorization
+        accessControlAllowCredentials: true
+        accessControlMaxAge: 100
+        addVaryHeader: true
+  routers:
+    dify-console-api:
+      rule: Host(`dify.console.api.yourdomain.com`)
+      service: dify-api-service
+      middlewares:
+        - cors
+      tls:
+        certResolver: letsencrypt
+    dify-web:
+      rule: Host(`dify.yourdomain.com`)
+      service: dify-web-service
+      middlewares:
+        - cors
+      tls:
+        certResolver: letsencrypt
+    dify-api:
+      rule: "Host(`dify.api.yourdomain.com`) || Host(`dify.api.app.yourdomain.com`)"
+      service: dify-api-service
+      middlewares:
+        - cors
+      tls:
+        certResolver: letsencrypt
+  services:
+    dify-api-service:
+      loadBalancer:
+        servers:
+          - url: "http://172.24.0.8:5001"
+    dify-web-service:
+      loadBalancer:
+        servers:
+          - url: "http://172.24.0.7:3000"
