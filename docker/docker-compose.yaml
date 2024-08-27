@@ -12,9 +12,13 @@ x-shared-env: &shared-api-worker-env
   # APP_WEB_URL: https://dify.marketinc.mx
   # WEB_API_CORS_ALLOW_ORIGINS: https://dify.marketinc.mx
   # CONSOLE_CORS_ALLOW_ORIGINS: https://console-dify.marketinc.mx
-  CONSOLE_WEB_URL: ${CONSOLE_WEB_URL:-https://console-dify.marketinc.mx}
-  CONSOLE_API_URL: ${CONSOLE_API_URL:-https://consoleapi-dify.marketinc.mx}
-  SERVICE_API_URL: ${SERVICE_API_URL:-https://api-dify.marketinc.mx}
+  # CONSOLE_WEB_URL: ${CONSOLE_WEB_URL:-https://console-dify.marketinc.mx}
+  # CONSOLE_API_URL: ${CONSOLE_API_URL:-https://consoleapi-dify.marketinc.mx}
+  # SERVICE_API_URL: ${SERVICE_API_URL:-https://api-dify.marketinc.mx}
+  # APP_WEB_URL: ${APP_WEB_URL:-https://dify.marketinc.mx}
+  CONSOLE_WEB_URL: ${https://console-dify.marketinc.mx}
+  CONSOLE_API_URL: ${https://consoleapi-dify.marketinc.mx}
+  SERVICE_API_URL: ${https://api-dify.marketinc.mx}
   APP_WEB_URL: ${APP_WEB_URL:-https://dify.marketinc.mx}
   CHECK_UPDATE_URL: ${CHECK_UPDATE_URL:-https://updates.dify.ai}
   OPENAI_API_BASE: ${OPENAI_API_BASE:-https://api.openai.com/v1}
@@ -242,8 +246,10 @@ services:
       # CONSOLE_API_URL: https://consoleapi-dify.marketinc.mx
       # APP_API_URL: https://apiapp-dify.marketinc.mx
       # APP_WEB_URL: https://dify.marketinc.mx
-      CONSOLE_API_URL: ${CONSOLE_API_URL:-https://consoleapi-dify.marketinc.mx}
-      APP_API_URL: ${APP_API_URL:-https://apiapp-dify.marketinc.mx}
+      # CONSOLE_API_URL: ${CONSOLE_API_URL:-https://consoleapi-dify.marketinc.mx}
+      # APP_API_URL: ${APP_API_URL:-https://apiapp-dify.marketinc.mx}
+      CONSOLE_API_URL: ${https://consoleapi-dify.marketinc.mx}
+      APP_API_URL: ${https://apiapp-dify.marketinc.mx}
       SENTRY_DSN: ${WEB_SENTRY_DSN:-}
       NEXT_TELEMETRY_DISABLED: ${NEXT_TELEMETRY_DISABLED:-0}
 
