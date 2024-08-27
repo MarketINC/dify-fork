@@ -6,9 +6,11 @@ x-shared-env: &shared-api-worker-env
   SECRET_KEY: ${SECRET_KEY:-sk-9f73s3ljTXVcMT3Blb3ljTqtsKiGHXVcMT3BlbkFJLK7U}
   INIT_PASSWORD: ${INIT_PASSWORD:-}
   CONSOLE_WEB_URL: https://console-dify.marketinc.mx
-  CONSOLE_API_URL: https://consoleapi-dify.marketinc.mx
+  #CONSOLE_API_URL: https://consoleapi-dify.marketinc.mx
+  CONSOLE_API_URL: https://api-dify.marketinc.mx
   SERVICE_API_URL: https://api-dify.marketinc.mx
-  APP_API_URL: https://apiapp-dify.marketinc.mx
+  #APP_API_URL: https://apiapp-dify.marketinc.mx
+  APP_API_URL: https://api-dify.marketinc.mx
   APP_WEB_URL: https://dify.marketinc.mx
   # WEB_API_CORS_ALLOW_ORIGINS: https://dify.marketinc.mx
   # CONSOLE_CORS_ALLOW_ORIGINS: https://console-dify.marketinc.mx
@@ -239,8 +241,10 @@ services:
     image: langgenius/dify-web:0.7.2
     restart: always
     environment:
-      CONSOLE_API_URL: https://consoleapi-dify.marketinc.mx
-      APP_API_URL: https://apiapp-dify.marketinc.mx
+      #CONSOLE_API_URL: https://consoleapi-dify.marketinc.mx
+      CONSOLE_API_URL: https://api-dify.marketinc.mx
+      #APP_API_URL: https://apiapp-dify.marketinc.mx
+      APP_API_URL: https://api-dify.marketinc.mx
       # APP_WEB_URL: https://dify.marketinc.mx
       # CONSOLE_API_URL: ${CONSOLE_API_URL:-https://consoleapi-dify.marketinc.mx}
       # APP_API_URL: ${APP_API_URL:-https://apiapp-dify.marketinc.mx}
